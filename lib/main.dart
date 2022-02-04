@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -48,15 +48,25 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(),
       body: Stack(
+        alignment: Alignment.center,
         children: const [
           RiveAnimation.asset(
             "assets/dash.riv",
             artboard: "space",
             fit: BoxFit.cover,
+            alignment: Alignment.center,
           ),
-          RiveAnimation.asset("assets/dash.riv")
+          RiveAnimation.asset("assets/dash.riv"),
+          Positioned(
+              top: 10,
+              child: Text(
+                "Vikings Dash meet a new friend",
+                style: TextStyle(
+                    fontFamily: 'Caesar Dressing',
+                    fontSize: 40,
+                    color: Colors.white),
+              )),
         ],
       ),
     );
